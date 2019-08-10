@@ -16,9 +16,19 @@
             'reset seconds elapsed
             SecondsElapsed = 0
             'alert
-            Beep()
+            alert()
 
         End If
+
+    End Sub
+    Private Sub alert()
+        Beep()
+    End Sub
+
+    Private Sub IntervalTrackBar_Scroll(sender As Object, e As EventArgs) Handles IntervalTrackBar.Scroll
+        SecondsToNextAction = IntervalTrackBar.Value * 60
+        IntervalLabel.Text = "Interval: " & IntervalTrackBar.Value.ToString & " minutes"
+        ActionsPerHourLabel.Text = "Actions per hour: " & Math.Round((3600 / SecondsToNextAction), 2)
 
     End Sub
 End Class

@@ -27,7 +27,7 @@ Partial Class Form1
         Me.SecondsToNextActionLabel = New System.Windows.Forms.Label()
         Me.ActionsPerHourLabel = New System.Windows.Forms.Label()
         Me.IntervalLabel = New System.Windows.Forms.Label()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
+        Me.IntervalTrackBar = New System.Windows.Forms.TrackBar()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -44,7 +44,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ActionTimer = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IntervalTrackBar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
@@ -54,7 +54,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.SecondsToNextActionLabel)
         Me.GroupBox1.Controls.Add(Me.ActionsPerHourLabel)
         Me.GroupBox1.Controls.Add(Me.IntervalLabel)
-        Me.GroupBox1.Controls.Add(Me.TrackBar1)
+        Me.GroupBox1.Controls.Add(Me.IntervalTrackBar)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
@@ -91,15 +91,15 @@ Partial Class Form1
         Me.IntervalLabel.TabIndex = 3
         Me.IntervalLabel.Text = "Interval: 6 minutes"
         '
-        'TrackBar1
+        'IntervalTrackBar
         '
-        Me.TrackBar1.Location = New System.Drawing.Point(6, 19)
-        Me.TrackBar1.Maximum = 20
-        Me.TrackBar1.Minimum = 1
-        Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(261, 45)
-        Me.TrackBar1.TabIndex = 2
-        Me.TrackBar1.Value = 6
+        Me.IntervalTrackBar.Location = New System.Drawing.Point(6, 19)
+        Me.IntervalTrackBar.Maximum = 20
+        Me.IntervalTrackBar.Minimum = 1
+        Me.IntervalTrackBar.Name = "IntervalTrackBar"
+        Me.IntervalTrackBar.Size = New System.Drawing.Size(261, 45)
+        Me.IntervalTrackBar.TabIndex = 2
+        Me.IntervalTrackBar.Value = 6
         '
         'Button2
         '
@@ -250,7 +250,7 @@ Partial Class Form1
         Me.Text = "Productivity Suite 0.1.0"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IntervalTrackBar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -262,7 +262,7 @@ Partial Class Form1
     Friend WithEvents SecondsToNextActionLabel As Label
     Friend WithEvents ActionsPerHourLabel As Label
     Friend WithEvents IntervalLabel As Label
-    Friend WithEvents TrackBar1 As TrackBar
+    Friend WithEvents IntervalTrackBar As TrackBar
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox2 As GroupBox
