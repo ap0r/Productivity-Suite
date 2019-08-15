@@ -31,14 +31,15 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
+        Me.DailiesRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.DoneRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.InProgressRichTextBox = New System.Windows.Forms.RichTextBox()
+        Me.TodoRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -121,16 +122,26 @@ Partial Class Form1
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Button6)
         Me.GroupBox2.Controls.Add(Me.Button5)
         Me.GroupBox2.Controls.Add(Me.Button4)
         Me.GroupBox2.Controls.Add(Me.Button3)
-        Me.GroupBox2.Controls.Add(Me.RichTextBox4)
+        Me.GroupBox2.Controls.Add(Me.DailiesRichTextBox)
         Me.GroupBox2.Location = New System.Drawing.Point(292, 13)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(355, 158)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Daily Tasks"
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(214, 107)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(128, 41)
+        Me.Button6.TabIndex = 15
+        Me.Button6.Text = "Move all to To Do"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'Button5
         '
@@ -159,19 +170,19 @@ Partial Class Form1
         Me.Button3.Text = "Edit"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'RichTextBox4
+        'DailiesRichTextBox
         '
-        Me.RichTextBox4.Location = New System.Drawing.Point(6, 19)
-        Me.RichTextBox4.Name = "RichTextBox4"
-        Me.RichTextBox4.Size = New System.Drawing.Size(202, 129)
-        Me.RichTextBox4.TabIndex = 11
-        Me.RichTextBox4.Text = ""
+        Me.DailiesRichTextBox.Location = New System.Drawing.Point(6, 19)
+        Me.DailiesRichTextBox.Name = "DailiesRichTextBox"
+        Me.DailiesRichTextBox.Size = New System.Drawing.Size(202, 129)
+        Me.DailiesRichTextBox.TabIndex = 11
+        Me.DailiesRichTextBox.Text = ""
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.RichTextBox3)
-        Me.GroupBox3.Controls.Add(Me.RichTextBox2)
-        Me.GroupBox3.Controls.Add(Me.RichTextBox1)
+        Me.GroupBox3.Controls.Add(Me.DoneRichTextBox)
+        Me.GroupBox3.Controls.Add(Me.InProgressRichTextBox)
+        Me.GroupBox3.Controls.Add(Me.TodoRichTextBox)
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.Label4)
@@ -182,29 +193,29 @@ Partial Class Form1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Advanced To-do"
         '
-        'RichTextBox3
+        'DoneRichTextBox
         '
-        Me.RichTextBox3.Location = New System.Drawing.Point(425, 32)
-        Me.RichTextBox3.Name = "RichTextBox3"
-        Me.RichTextBox3.Size = New System.Drawing.Size(202, 163)
-        Me.RichTextBox3.TabIndex = 10
-        Me.RichTextBox3.Text = ""
+        Me.DoneRichTextBox.Location = New System.Drawing.Point(425, 32)
+        Me.DoneRichTextBox.Name = "DoneRichTextBox"
+        Me.DoneRichTextBox.Size = New System.Drawing.Size(202, 163)
+        Me.DoneRichTextBox.TabIndex = 10
+        Me.DoneRichTextBox.Text = ""
         '
-        'RichTextBox2
+        'InProgressRichTextBox
         '
-        Me.RichTextBox2.Location = New System.Drawing.Point(217, 32)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(202, 163)
-        Me.RichTextBox2.TabIndex = 9
-        Me.RichTextBox2.Text = ""
+        Me.InProgressRichTextBox.Location = New System.Drawing.Point(217, 32)
+        Me.InProgressRichTextBox.Name = "InProgressRichTextBox"
+        Me.InProgressRichTextBox.Size = New System.Drawing.Size(202, 163)
+        Me.InProgressRichTextBox.TabIndex = 9
+        Me.InProgressRichTextBox.Text = ""
         '
-        'RichTextBox1
+        'TodoRichTextBox
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(9, 33)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(202, 163)
-        Me.RichTextBox1.TabIndex = 8
-        Me.RichTextBox1.Text = ""
+        Me.TodoRichTextBox.Location = New System.Drawing.Point(9, 33)
+        Me.TodoRichTextBox.Name = "TodoRichTextBox"
+        Me.TodoRichTextBox.Size = New System.Drawing.Size(202, 163)
+        Me.TodoRichTextBox.TabIndex = 8
+        Me.TodoRichTextBox.Text = ""
         '
         'Label6
         '
@@ -268,14 +279,15 @@ Partial Class Form1
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents RichTextBox4 As RichTextBox
-    Friend WithEvents RichTextBox3 As RichTextBox
-    Friend WithEvents RichTextBox2 As RichTextBox
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents DailiesRichTextBox As RichTextBox
+    Friend WithEvents DoneRichTextBox As RichTextBox
+    Friend WithEvents InProgressRichTextBox As RichTextBox
+    Friend WithEvents TodoRichTextBox As RichTextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Button5 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents ActionTimer As Timer
+    Friend WithEvents Button6 As Button
 End Class
