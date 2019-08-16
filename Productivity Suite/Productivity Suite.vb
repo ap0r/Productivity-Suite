@@ -5,6 +5,7 @@
     'create list of sound files
     Dim SoundFilePaths() As String = IO.Directory.GetFiles(Application.StartupPath + "\resources\sounds")
 
+    'load tasks
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'load tasks
         TodoRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\ToDo.txt")
@@ -35,13 +36,14 @@
     Private Sub Alert()
         Dim alertpath As String
         'random alert, choose a random sound
-        alertpath = SoundFilePaths(CInt(Math.Ceiling(Rnd() * SoundFilePaths.Length)))
+        alertpath = SoundFilePaths(CInt(Rnd() * SoundFilePaths.Length))
 
         'play chosen sound
         My.Computer.Audio.Play(alertpath, AudioPlayMode.Background)
 
     End Sub
 
+    'Update Action Timer values via the trackbar.
     Private Sub IntervalTrackBar_Scroll(sender As Object, e As EventArgs) Handles IntervalTrackBar.Scroll
         SecondsToNextAction = IntervalTrackBar.Value * 60
         IntervalLabel.Text = "Interval: " & IntervalTrackBar.Value.ToString & " minutes"
@@ -50,7 +52,7 @@
     End Sub
 
 
-    'save on changes
+    'Make lists persistent. Save on change.
     Private Sub TodoRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles TodoRichTextBox.TextChanged
         My.Computer.FileSystem.WriteAllText((Application.StartupPath & "\user data\ToDo.txt"), TodoRichTextBox.Text, False)
     End Sub
@@ -62,4 +64,41 @@
     Private Sub DoneRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles DoneRichTextBox.TextChanged
         My.Computer.FileSystem.WriteAllText((Application.StartupPath & "\user data\Done.txt"), DoneRichTextBox.Text, False)
     End Sub
+
+    'This code handles moving stuff in between ToDo, InProgress, and Done lists
+
+    'ToDo->InProgress
+    Private Sub TodoRichTextBox_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TodoRichTextBox.MouseDoubleClick
+
+        'get line
+        Dim LineNumber As Integer
+        Dim Line As String
+        LineNumber = TodoRichTextBox.GetLineFromCharIndex(TodoRichTextBox.SelectionStart)
+        Line = TodoRichTextBox.Lines(LineNumber)
+
+        'move line
+        TodoRichTextBox.SelectionStart = TodoRichTextBox.GetFirstCharIndexFromLine(LineNumber)
+        TodoRichTextBox.SelectionLength = TodoRichTextBox.Lines(LineNumber).Length + 1
+        TodoRichTextBox.SelectedText = ""
+
+        InProgressRichTextBox.Text = Line & vbNewLine & InProgressRichTextBox.Text
+
+    End Sub
+    'InProgress->Done
+    Private Sub InProgressRichTextBox_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles InProgressRichTextBox.MouseDoubleClick
+        'get line
+        Dim LineNumber As Integer
+        Dim Line As String
+        LineNumber = InProgressRichTextBox.GetLineFromCharIndex(InProgressRichTextBox.SelectionStart)
+        Line = InProgressRichTextBox.Lines(LineNumber)
+
+        'move line
+        InProgressRichTextBox.SelectionStart = InProgressRichTextBox.GetFirstCharIndexFromLine(LineNumber)
+        InProgressRichTextBox.SelectionLength = InProgressRichTextBox.Lines(LineNumber).Length + 1
+        InProgressRichTextBox.SelectedText = ""
+
+        DoneRichTextBox.Text = Line & vbNewLine & DoneRichTextBox.Text
+    End Sub
+
+
 End Class

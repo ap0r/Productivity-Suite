@@ -192,7 +192,7 @@ Partial Class Form1
         Me.GroupBox3.Size = New System.Drawing.Size(634, 202)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Advanced To-do"
+        Me.GroupBox3.Text = "Advanced To-do. Double click a task to move it to the next stage."
         '
         'DoneRichTextBox
         '
