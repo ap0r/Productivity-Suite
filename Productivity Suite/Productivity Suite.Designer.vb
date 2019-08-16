@@ -29,7 +29,7 @@ Partial Class Form1
         Me.ActionsPerHourLabel = New System.Windows.Forms.Label()
         Me.IntervalLabel = New System.Windows.Forms.Label()
         Me.IntervalTrackBar = New System.Windows.Forms.TrackBar()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.MuteButton = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -57,7 +57,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.ActionsPerHourLabel)
         Me.GroupBox1.Controls.Add(Me.IntervalLabel)
         Me.GroupBox1.Controls.Add(Me.IntervalTrackBar)
-        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(Me.MuteButton)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
         Me.GroupBox1.Name = "GroupBox1"
@@ -103,14 +103,14 @@ Partial Class Form1
         Me.IntervalTrackBar.TabIndex = 2
         Me.IntervalTrackBar.Value = 6
         '
-        'Button2
+        'MuteButton
         '
-        Me.Button2.Location = New System.Drawing.Point(6, 125)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(261, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Mute"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.MuteButton.Location = New System.Drawing.Point(6, 125)
+        Me.MuteButton.Name = "MuteButton"
+        Me.MuteButton.Size = New System.Drawing.Size(261, 23)
+        Me.MuteButton.TabIndex = 1
+        Me.MuteButton.Text = "Mute"
+        Me.MuteButton.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -276,7 +276,7 @@ Partial Class Form1
     Friend WithEvents ActionsPerHourLabel As Label
     Friend WithEvents IntervalLabel As Label
     Friend WithEvents IntervalTrackBar As TrackBar
-    Friend WithEvents Button2 As Button
+    Friend WithEvents MuteButton As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox

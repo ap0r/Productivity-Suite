@@ -2,6 +2,8 @@
     'declarations & value initialization
     Dim SecondsElapsed As Integer = 0
     Dim SecondsToNextAction As Integer = 360 '6 minutes default
+    'flags
+    Dim muted As Boolean = False
     'create list of sound files
     Dim SoundFilePaths() As String = IO.Directory.GetFiles(Application.StartupPath + "\resources\sounds")
 
@@ -23,7 +25,7 @@
         SecondsToNextActionLabel.Text = "Seconds to next action: " & Str(SecondsToNextAction - SecondsElapsed)
 
         'alert logic
-        If SecondsElapsed >= SecondsToNextAction Then
+        If SecondsElapsed >= SecondsToNextAction And muted = False Then
             'reset seconds elapsed
             SecondsElapsed = 0
             Alert()
@@ -99,6 +101,19 @@
 
         DoneRichTextBox.Text = Line & vbNewLine & DoneRichTextBox.Text
     End Sub
+
+
+    'mute button and mute flag logic
+    Private Sub MuteButton_Click(sender As Object, e As EventArgs) Handles MuteButton.Click
+        'invert the muted flag
+        muted = Not muted
+        If muted = True Then
+            MuteButton.Text = "Unmute"
+        Else
+            MuteButton.Text = "Mute"
+        End If
+    End Sub
+
 
 
 End Class
