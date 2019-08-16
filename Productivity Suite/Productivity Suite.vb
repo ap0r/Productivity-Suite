@@ -2,8 +2,11 @@
     'declarations & value initialization
     Dim SecondsElapsed As Integer = 0
     Dim SecondsToNextAction As Integer = 360 '6 minutes default
+    'create list of sound files
+    Dim SoundFilePaths() As String = IO.Directory.GetFiles(Application.StartupPath + "\resources\sounds")
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load tasks
         TodoRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\ToDo.txt")
         InProgressRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\InProgress.txt")
         DoneRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\Done.txt")
@@ -22,14 +25,21 @@
         If SecondsElapsed >= SecondsToNextAction Then
             'reset seconds elapsed
             SecondsElapsed = 0
-            'alert
-            alert()
+            Alert()
+
+
 
         End If
 
     End Sub
-    Private Sub alert()
-        Beep()
+    Private Sub Alert()
+        Dim alertpath As String
+        'random alert, choose a random sound
+        alertpath = SoundFilePaths(CInt(Math.Ceiling(Rnd() * SoundFilePaths.Length)))
+
+        'play chosen sound
+        My.Computer.Audio.Play(alertpath, AudioPlayMode.Background)
+
     End Sub
 
     Private Sub IntervalTrackBar_Scroll(sender As Object, e As EventArgs) Handles IntervalTrackBar.Scroll
