@@ -13,6 +13,7 @@
         TodoRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\ToDo.txt")
         InProgressRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\InProgress.txt")
         DoneRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\Done.txt")
+        DailiesRichTextBox.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\user data\Dailies.txt")
     End Sub
 
     Private Sub ActionTimer_Tick(sender As Object, e As EventArgs) Handles ActionTimer.Tick
@@ -67,6 +68,10 @@
         My.Computer.FileSystem.WriteAllText((Application.StartupPath & "\user data\Done.txt"), DoneRichTextBox.Text, False)
     End Sub
 
+    Private Sub DailiesRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles DailiesRichTextBox.TextChanged
+        My.Computer.FileSystem.WriteAllText((Application.StartupPath & "\user data\Dailies.txt"), DailiesRichTextBox.Text, False)
+    End Sub
+
     'This code handles moving stuff in between ToDo, InProgress, and Done lists
 
     'ToDo->InProgress
@@ -117,7 +122,6 @@
             MuteButton.Text = "Mute"
         End If
     End Sub
-
 
 
 End Class
