@@ -76,15 +76,19 @@
         Dim LineNumber As Integer
         Dim Line As String
         LineNumber = TodoRichTextBox.GetLineFromCharIndex(TodoRichTextBox.SelectionStart)
-        Line = TodoRichTextBox.Lines(LineNumber)
 
-        'move line
-        TodoRichTextBox.SelectionStart = TodoRichTextBox.GetFirstCharIndexFromLine(LineNumber)
-        TodoRichTextBox.SelectionLength = TodoRichTextBox.Lines(LineNumber).Length + 1
-        TodoRichTextBox.SelectedText = ""
+        'This if/end if is to prevent overflow bug if the user double clicks outside the text area
+        If LineNumber <= TodoRichTextBox.Lines.Count Then
+            Line = TodoRichTextBox.Lines(LineNumber)
 
-        InProgressRichTextBox.Text = Line & vbNewLine & InProgressRichTextBox.Text
+            'move line
+            TodoRichTextBox.SelectionStart = TodoRichTextBox.GetFirstCharIndexFromLine(LineNumber)
+            TodoRichTextBox.SelectionLength = TodoRichTextBox.Lines(LineNumber).Length + 1
+            TodoRichTextBox.SelectedText = ""
 
+            InProgressRichTextBox.Text = Line & vbNewLine & InProgressRichTextBox.Text
+
+        End If
     End Sub
     'InProgress->Done
     Private Sub InProgressRichTextBox_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles InProgressRichTextBox.MouseDoubleClick
