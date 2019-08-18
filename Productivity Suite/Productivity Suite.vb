@@ -39,7 +39,7 @@
     Private Sub Alert()
         Dim alertpath As String
         'random alert, choose a random sound
-        alertpath = SoundFilePaths(CInt(Rnd() * SoundFilePaths.Length))
+        alertpath = SoundFilePaths(CInt(Math.Floor(Rnd() * SoundFilePaths.Count)))
 
         'play chosen sound
         My.Computer.Audio.Play(alertpath, AudioPlayMode.Background)
@@ -123,5 +123,7 @@
         End If
     End Sub
 
-
+    Private Sub AudioTestButton_Click(sender As Object, e As EventArgs) Handles AudioTestButton.Click
+        Alert()
+    End Sub
 End Class

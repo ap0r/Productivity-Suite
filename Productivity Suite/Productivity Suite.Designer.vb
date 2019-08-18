@@ -30,7 +30,7 @@ Partial Class Form1
         Me.IntervalLabel = New System.Windows.Forms.Label()
         Me.IntervalTrackBar = New System.Windows.Forms.TrackBar()
         Me.MuteButton = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.AudioTestButton = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
@@ -58,7 +58,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.IntervalLabel)
         Me.GroupBox1.Controls.Add(Me.IntervalTrackBar)
         Me.GroupBox1.Controls.Add(Me.MuteButton)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.AudioTestButton)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(273, 158)
@@ -112,14 +112,14 @@ Partial Class Form1
         Me.MuteButton.Text = "Mute"
         Me.MuteButton.UseVisualStyleBackColor = True
         '
-        'Button1
+        'AudioTestButton
         '
-        Me.Button1.Location = New System.Drawing.Point(6, 93)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(261, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Audio Test"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.AudioTestButton.Location = New System.Drawing.Point(6, 93)
+        Me.AudioTestButton.Name = "AudioTestButton"
+        Me.AudioTestButton.Size = New System.Drawing.Size(261, 23)
+        Me.AudioTestButton.TabIndex = 0
+        Me.AudioTestButton.Text = "Audio Test"
+        Me.AudioTestButton.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -277,7 +277,7 @@ Partial Class Form1
     Friend WithEvents IntervalLabel As Label
     Friend WithEvents IntervalTrackBar As TrackBar
     Friend WithEvents MuteButton As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents AudioTestButton As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label4 As Label
