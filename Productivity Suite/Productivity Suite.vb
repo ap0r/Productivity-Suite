@@ -21,18 +21,16 @@
         SecondsElapsed = SecondsElapsed + 1
 
         'update labels
-        'IntervalLabel.Text = "Interval: " & Str(SecondsToNextAction / 60) & " minutes"
-
         SecondsToNextActionLabel.Text = "Seconds to next action: " & Str(SecondsToNextAction - SecondsElapsed)
 
         'alert logic
-        If SecondsElapsed >= SecondsToNextAction And muted = False Then
+        If SecondsElapsed >= SecondsToNextAction Then
             'reset seconds elapsed
             SecondsElapsed = 0
-            Alert()
-
-
-
+            'if unmuted, call the alert sub
+            If muted = False Then
+                Alert()
+            End If
         End If
 
     End Sub
@@ -123,6 +121,7 @@
         End If
     End Sub
 
+    'handles audio testing
     Private Sub AudioTestButton_Click(sender As Object, e As EventArgs) Handles AudioTestButton.Click
         Alert()
     End Sub
